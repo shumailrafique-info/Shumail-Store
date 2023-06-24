@@ -1,0 +1,102 @@
+@mixin tablet {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+@mixin tablet2 {
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+.footer {
+  margin: 100px 100px 20px 100px;
+  font-family: "Poppins", sans-serif;
+  @include tablet {
+    margin: 30px 50px 30px 30px;
+  }
+  .top {
+    display: flex;
+    gap: 50px;
+    @include tablet {
+      gap: 30px;
+    }
+    @include tablet2 {
+      flex-direction: column;
+    }
+    .item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+
+      h1 {
+        font-size: 22px;
+        font-weight: 500;
+        color: #383838;
+      }
+      span {
+        color: rgb(107, 107, 107);
+        cursor: pointer;
+        transition: 0.3s ease all;
+        &:hover {
+          color: black;
+        }
+      }
+      p {
+        color: rgb(107, 107, 107);
+        cursor: pointer;
+        transition: 0.3s ease all;
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    @include tablet {
+      margin-top: 40px;
+    }
+    @include tablet2 {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      @include mobile {
+        flex-direction: column;
+      }
+      .logo {
+        color: #2879fe;
+        font-weight: bold;
+        font-size: 20px;
+        
+      }
+      .copyright {
+        font-size: 12px;
+        color: gray;
+      }
+    }
+    .right {
+      @include tablet2 {
+        margin-bottom: 30px;
+      }
+      > img {
+        height: 50px;
+        @include tablet {
+          height: 40px;
+        }
+      }
+    }
+  }
+}

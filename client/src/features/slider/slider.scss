@@ -1,0 +1,55 @@
+@mixin tablet {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+.slider {
+  height: calc(100vh - 60px);
+  max-width: 100vw;
+  position: relative;
+  overflow: hidden;
+  @include tablet {
+    height: calc(70vh);
+  }
+  @include mobile {
+    height: calc(50vh);
+  }
+  .Container {
+    display: flex;
+    height: 100%;
+    transition: 0.5s ease all;
+    > img {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .icons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    width: fit-content;
+    display: flex;
+    margin: auto;
+    gap: 20px;
+    @include mobile {
+      bottom: 30px;
+    }
+    > .icon {
+      border: 1px solid white;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

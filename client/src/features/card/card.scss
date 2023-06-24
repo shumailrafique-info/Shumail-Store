@@ -1,0 +1,67 @@
+@mixin small-screen {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+.card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  // margin-bottom: 50px;
+  @include small-screen{
+    width: 270px;
+
+  }
+  .image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    &:hover {
+      .secondImg {
+        z-index: 2;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+    }
+    .mainImg {
+      z-index: 1;
+    }
+    span {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background-color: white;
+      color: teal;
+      padding: 3px 5px;
+      z-index: 3;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .prices {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    h3 {
+      font-size: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      &:first-child {
+        color: gray;
+        text-decoration: line-through;
+      }
+    }
+  }
+}
